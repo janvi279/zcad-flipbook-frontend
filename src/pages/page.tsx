@@ -21,6 +21,7 @@ const Page = forwardRef<HTMLDivElement, PageProps>(
             src={image}
             alt={`Page ${pageNumber ?? ""}`}
             className="w-full h-full object-contain bg-white"
+            draggable={false}
           />
         ) : (
           children
@@ -28,7 +29,7 @@ const Page = forwardRef<HTMLDivElement, PageProps>(
 
         {/* Page number */}
         {pageNumber !== undefined && pageNumber > 0 && (
-          <div className="absolute bottom-3 right-4 text-[11px] text-gray-300 font-medium select-none">
+          <div className="absolute bottom-2 right-3 text-[9px] sm:text-[11px] text-gray-300 font-medium select-none">
             {pageNumber}
           </div>
         )}
@@ -36,7 +37,7 @@ const Page = forwardRef<HTMLDivElement, PageProps>(
         {/* Fold corner hint */}
         {image && (
           <div
-            className="absolute bottom-0 right-0 w-5 h-5"
+            className="absolute bottom-0 right-0 w-4 h-4 sm:w-5 sm:h-5"
             style={{
               background:
                 "linear-gradient(135deg, transparent 50%, #E6F1FB 50%)",
