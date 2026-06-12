@@ -112,17 +112,17 @@ toast.success("Book deleted successfully!");
 
       cell: (row: Book) => (
         <div className="flex gap-3">
-          <button onClick={() => handleView(row)} className="text-blue-600">
+          <button onClick={() => handleView(row)} className="text-blue-600 cursor-pointer">
             <FiEye />
           </button>
 
-          <button onClick={() => handleEdit(row)} className="text-green-600">
+          <button onClick={() => handleEdit(row)} className="text-green-600 cursor-pointer">
             <FiEdit />
           </button>
 
           <button
             onClick={() => handleDelete(row._id)}
-            className="text-red-600"
+            className="text-red-600 cursor-pointer"
           >
             <FiTrash2 />
           </button>

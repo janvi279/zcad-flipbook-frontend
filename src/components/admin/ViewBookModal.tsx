@@ -62,12 +62,7 @@ const ViewBookModal: React.FC<ViewBookModalProps> = ({ show, onClose, book }) =>
             {book.shopifyHandle}
           </div>
 
-          <div>
-            <strong>
-              Product ID:
-            </strong>{" "}
-            {book.productId}
-          </div>
+          
 
           <div>
             <strong>

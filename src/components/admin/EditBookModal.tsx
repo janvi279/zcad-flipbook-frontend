@@ -27,6 +27,7 @@ const EditBookModal: React.FC<EditBookModalProps> = ({
   });
 
   const [pdf, setPdf] = useState<File | null>(null);
+   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     if (book) {
@@ -45,6 +46,7 @@ const EditBookModal: React.FC<EditBookModalProps> = ({
     if (!book) return;
 
     try {
+       setUploading(true);
       const data = new FormData();
 
       data.append("title", formData.title);
@@ -65,6 +67,9 @@ const EditBookModal: React.FC<EditBookModalProps> = ({
     } catch (error) {
       console.error("Update Book Error:", error);
       toast.error("Failed to update book!");
+    }
+    finally {
+      setUploading(false);
     }
   };
 
@@ -141,16 +146,17 @@ const EditBookModal: React.FC<EditBookModalProps> = ({
         <div className="flex justify-end gap-3">
           <button
             onClick={onClose}
-            className="px-6 py-2 border rounded-lg hover:bg-gray-100"
+            className="px-6 py-2 border rounded-lg hover:bg-gray-100 cursor-pointer"
           >
             Cancel
           </button>
 
           <button
             onClick={handleSubmit}
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            disabled={uploading}
+            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer"
           >
-            Update
+              {uploading ? "Update..." : "Update"}
           </button>
         </div>
       </div>

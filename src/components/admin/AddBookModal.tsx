@@ -229,7 +229,7 @@ export default function AddBookModal({ isOpen, onClose, onSuccess }: Props) {
             <button
               type="submit"
               disabled={uploading}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer"
             >
               {uploading ? "Uploading..." : "Save Book"}
             </button>
